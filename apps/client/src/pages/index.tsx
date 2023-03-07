@@ -1,13 +1,15 @@
+import { Header } from "$modules/Header";
+import { Semester } from "$modules/Semester";
 import { NextPage } from "next";
-import { Button } from "ui";
 
 const IndexPage: NextPage = () => {
   return (
-    <div>
-      <h1>Index Page</h1>
-      <div className="bg-gray-light">s</div>
-      <Button />
-    </div>
+    <main className="h-screen w-screen bg-gray-bg">
+      <Header />
+      {/* <Container sx={{ className: "flex justify-center" }}> */}
+      <Semester></Semester>
+      {/* </Container> */}
+    </main>
   );
 };
 

@@ -13,7 +13,7 @@ module.exports = {
         "gray-light": "#efefef",
         "gray-dark": "#333333",
         "gray-hover": "#f7f7f7",
-        "gray-bg":"#fcfcfc",
+        "gray-bg": "#fcfcfc",
       },
     },
   },
