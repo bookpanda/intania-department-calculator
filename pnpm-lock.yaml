@@ -47,6 +47,8 @@ importers:
   apps/client:
     specifiers:
       '@babel/core': ^7.0.0
+      '@headlessui/react': ^1.7.13
+      '@heroicons/react': ^2.0.16
       '@types/node': ^17.0.12
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
@@ -62,6 +64,8 @@ importers:
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      '@headlessui/react': 1.7.13_biqbaboplfbrettd7655fr4n2y
+      '@heroicons/react': 2.0.16_react@18.2.0
       next: 13.2.3_4pgn6omj4irpgog4tpnzary34q
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -404,6 +408,26 @@ packages:
     resolution: {integrity: sha512-JXdzbRiWclLVoD8sNUjR443VVlYqiYmDVT6rGUEIEHU5YJW0gaVZwV2xgM7D4arkvASqD0IlLUVjHiFuxaftRw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@headlessui/react/1.7.13_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-9n+EQKRtD9266xIHXdY5MfiXPDfYwl7zBM7KOx2Ae3Gdgxy8QML1FkCMjq6AsOf0l6N9uvI4HcFtuFlenaldKg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@heroicons/react/2.0.16_react@18.2.0:
+    resolution: {integrity: sha512-x89rFxH3SRdYaA+JCXwfe+RkE1SFTo9GcOkZettHer71Y3T7V+ogKmfw5CjTazgS3d0ClJ7p1NA+SP7VQLQcLw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}

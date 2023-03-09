@@ -4,11 +4,9 @@ import { NextPage } from "next";
 
 const IndexPage: NextPage = () => {
   return (
-    <main className="h-screen w-screen bg-gray-bg">
+    <main className="flex h-screen w-screen flex-col items-center bg-gray-bg">
       <Header />
-      {/* <Container sx={{ className: "flex justify-center" }}> */}
       <Semester></Semester>
-      {/* </Container> */}
     </main>
   );
 };
