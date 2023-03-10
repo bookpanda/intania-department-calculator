@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
-import { coursesList, nameToKey, weights } from "..";
+import { coursesList, weights } from "..";
 import { AppContext, IAppContext, baseCourses } from "./appContext";
 
 export const AppProvider: FC<PropsWithChildren> = ({ children }) => {

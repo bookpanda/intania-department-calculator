@@ -134,3 +134,17 @@ for (const [key, value] of Object.entries(detailedCourses)) {
   coursesList.push(value);
   nameToKey[value.name] = key;
 }
+
+export const departmentsList = [
+  { name: "🏗️🧱 Civil", key: "civil" },
+  { name: "🪛⚙️ Mechanical", key: "mechanical" },
+  { name: "🚗🔧 Automobile", key: "automobile" },
+  { name: "💼📈 Industrial", key: "industrial" },
+  { name: "🧪⚗️ Chemical", key: "chemical" },
+  { name: "🛢️⛽ Petroleum", key: "petroluem" },
+  { name: "🌍🌳 Environmental", key: "environmental" },
+  { name: "🔭📐 Survey", key: "survey" },
+  { name: "🪨⛓️ Metallurgical", key: "metallurgical" },
+  { name: "💻🥗 Computer", key: "computer" },
+  { name: "☢️⚠️ Nuclear", key: "nuclear" },
+];

@@ -1,4 +1,4 @@
-import { coursesList, detailedCourses } from "$core/index";
+import { coursesList } from "$core/index";
 import { Divider, Grid, Paper, Typography } from "@mui/material";
 import { FC } from "react";
 
