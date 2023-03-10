@@ -1,20 +1,16 @@
 import { Header } from "$modules/Header";
 import { Semester } from "$modules/Semester";
+import { Container } from "@mui/material";
 import { NextPage } from "next";
 
 const IndexPage: NextPage = () => {
   return (
-<<<<<<< HEAD
     <main className="flex h-screen w-screen flex-col items-center bg-gray-bg">
       <Header />
-      <Semester></Semester>
+      <Container sx={{ bgcolor: "#cfe8fc", height: "100vh" }}>
+        <Semester></Semester>
+      </Container>
     </main>
-=======
-    <div>
-      <h1>Index Page</h1>
-      <Button />
-    </div>
->>>>>>> parent of 80e7057... feat: add intania colors
   );
 };
 

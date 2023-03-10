@@ -5,7 +5,6 @@ module.exports = {
     "../../packages/design/src/**/*.{js,ts,jsx,tsx,css,scss}",
   ],
   theme: {
-<<<<<<< HEAD
     extend: {
       colors: {
         transparent: "transparent",
@@ -17,9 +16,6 @@ module.exports = {
         "gray-bg": "#fcfcfc",
       },
     },
-=======
-    extend: {},
->>>>>>> parent of 80e7057... feat: add intania colors
   },
   plugins: [],
 };

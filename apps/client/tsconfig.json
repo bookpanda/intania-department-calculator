@@ -3,6 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "$core/*": ["src/core/*"],    
+      "$theme/*": ["src/theme/*"],      
       "$modules/*": ["src/modules/*"],
       "$styles/*": ["src/styles/*"]
     }
