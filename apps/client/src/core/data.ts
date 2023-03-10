@@ -129,6 +129,8 @@ export const coursesList: {
   credits: number;
   semester: number;
 }[] = [];
+export const nameToKey: { [key: string]: string } = {};
 for (const [key, value] of Object.entries(detailedCourses)) {
   coursesList.push(value);
+  nameToKey[value.name] = key;
 }

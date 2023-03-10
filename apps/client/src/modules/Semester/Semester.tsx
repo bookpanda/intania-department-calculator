@@ -12,7 +12,7 @@ export const Semester: FC = () => {
       <Paper elevation={3} sx={{ marginTop: 4 }}>
         <div className="w-full p-8">
           <Typography variant="h6" gutterBottom>
-            Semester 1
+            Semester 1: {2 / 3}
           </Typography>
           <Divider variant="fullWidth" sx={{ marginBottom: 4 }} />
           <Grid container spacing={2}>

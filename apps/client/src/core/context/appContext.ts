@@ -18,17 +18,25 @@ export const baseCourses = {
 };
 
 export interface IAppContext {
-  department: string | null;
+  department: string;
   setDepartment: (text: string) => void;
   courses: typeof baseCourses;
   setCourses: (courses: IAppContext["courses"]) => void;
+  gpa: {
+    sem1: { earnedCredits: number; totalCredits: number };
+    sem2: { earnedCredits: number; totalCredits: number };
+  };
 }
 
 export const AppContext = createContext<IAppContext>({
-  department: null,
+  department: "base",
   setDepartment: () => null,
   courses: baseCourses,
   setCourses: () => null,
+  gpa: {
+    sem1: { earnedCredits: 0, totalCredits: 0 },
+    sem2: { earnedCredits: 0, totalCredits: 0 },
+  },
 });
 
 export function useAppContext() {

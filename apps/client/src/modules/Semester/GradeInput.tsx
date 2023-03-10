@@ -1,3 +1,5 @@
+import { useAppContext } from "$core/context/appContext";
+import { nameToKey } from "$core/data";
 import {
   FormControl,
   InputLabel,
@@ -13,10 +15,13 @@ type gradeInputType = {
 };
 
 export const GradeInput: FC<gradeInputType> = ({ name }) => {
+  const { courses, setCourses } = useAppContext();
+
   const [gpa, setGpa] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
     setGpa(event.target.value);
+    setCourses({ ...courses, [nameToKey[name]]: event.target.value });
   };
   return (
     <div className="flex items-baseline">
