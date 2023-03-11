@@ -1,4 +1,4 @@
-import { departmentsList } from "$core/index";
+import { departments } from "$core/index";
 import { Chip, Divider, Grid, Paper, Typography } from "@mui/material";
 import { FC } from "react";
 
@@ -14,7 +14,7 @@ export const Department: FC = () => {
           </Typography>
           <Divider variant="fullWidth" sx={{ marginBottom: 4 }} />
           <Grid container spacing={1}>
-            {departmentsList.map((dp) => (
+            {departments.map((dp) => (
               <Grid key={dp.name} sx={{ margin: 1 }}>
                 <Chip label={dp.name} onClick={handleClick} />
               </Grid>

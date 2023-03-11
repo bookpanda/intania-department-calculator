@@ -1,35 +1,49 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
-import { coursesList, weights } from "..";
+import { coursesList, departments } from "..";
 import { AppContext, IAppContext, baseCourses } from "./appContext";
 
 export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
   const [department, setDepartment] =
-    useState<IAppContext["department"]>("base");
+    useState<IAppContext["department"]>("civil");
   const [courses, setCourses] = useState<IAppContext["courses"]>(baseCourses);
-  const [mul, setMul] = useState(weights.base);
+  const [mul, setMul] = useState(coursesList);
   const [gpa, setGpa] = useState<IAppContext["gpa"]>({
     sem1: {
       earnedCredits: 0,
       totalCredits: coursesList
         .filter((course) => course.semester === 1)
+        .map((course) => course.credits)
         .reduce((total, curr) => {
-          return { ...total, credits: total.credits + curr.credits };
-        }).credits,
+          return total + curr;
+        }),
     },
     sem2: {
       earnedCredits: 0,
       totalCredits: coursesList
         .filter((course) => course.semester === 2)
+        .map((course) => course.credits)
         .reduce((total, curr) => {
-          return { ...total, credits: total.credits + curr.credits };
-        }).credits,
+          return total + curr;
+        }),
     },
   });
 
   useEffect(() => {
-    setMul({ ...mul, ...weights[department as string] });
-    console.log(mul);
+    const selectedDepartment = departments.filter(
+      (dp) => dp.key === department
+    )[0];
+    setMul((mul) => {
+      return mul.map((course) => {
+        const overwriteCourse = selectedDepartment.weights.filter(
+          (c) => c.name === course.name
+        )[0];
+        if (overwriteCourse) {
+          return { ...overwriteCourse, semester: course.semester };
+        }
+        return course;
+      });
+    });
   }, [department]);
 
   // useEffect(() => {

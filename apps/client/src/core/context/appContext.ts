@@ -1,5 +1,7 @@
 import { createContext, useContext } from "react";
 
+import { coursesList } from "..";
+
 export const baseCourses = {
   engDrawing: 0,
   engMaterials: 0,

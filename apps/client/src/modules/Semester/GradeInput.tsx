@@ -1,5 +1,5 @@
+import { nameToKey } from "$core/const";
 import { useAppContext } from "$core/context/appContext";
-import { nameToKey } from "$core/data";
 import {
   FormControl,
   InputLabel,
