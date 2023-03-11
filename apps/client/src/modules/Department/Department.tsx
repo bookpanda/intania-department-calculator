@@ -24,6 +24,10 @@ export const Department: FC = () => {
                 />
               </Grid>
             ))}
+            {/* {
+              departments.filter((dp) => dp.key === "metallurgical")[0]
+                .record[0].gpax
+            } */}
           </Grid>
         </div>
       </Paper>
