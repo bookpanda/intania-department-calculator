@@ -35,7 +35,7 @@ export const departments = [
   { name: "🧪⚗️ Chemical", key: "chemical", weights: [] },
   {
     name: "🛢️⛽ Petroleum",
-    key: "chemical",
+    key: "petroleum",
     weights: [
       { name: coursesConst.comProg.name, credits: 4 },
       { name: coursesConst.expEngI.name, credits: 4 },

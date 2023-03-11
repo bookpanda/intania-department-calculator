@@ -24,7 +24,7 @@ export const GradeInput: FC<gradeInputType> = ({ name }) => {
     setCourses({ ...courses, [nameToKey[name]]: event.target.value });
   };
   return (
-    <div className="flex items-baseline">
+    <div className="flex items-baseline px-4 ">
       <FormControl variant="standard" sx={{ m: 1, minWidth: 60 }}>
         <InputLabel id="subject-label">GPA</InputLabel>
         <Select

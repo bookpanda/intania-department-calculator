@@ -20,7 +20,11 @@ export const Semester: FC = () => {
           <Divider variant="fullWidth" sx={{ marginBottom: 4 }} />
           <Grid container spacing={2}>
             {sem1Subjects.map((course) => (
-              <Grid key={course.name} xs={4}>
+              <Grid
+                key={course.name}
+                spacing={{ xs: 2, md: 3 }}
+                columns={{ xs: 4, sm: 8, md: 12 }}
+              >
                 <GradeInput name={course.name} />
               </Grid>
             ))}
@@ -36,7 +40,11 @@ export const Semester: FC = () => {
           <Divider variant="fullWidth" sx={{ marginBottom: 4 }} />
           <Grid container spacing={2}>
             {sem2Subjects.map((course) => (
-              <Grid key={course.name} xs={4}>
+              <Grid
+                key={course.name}
+                spacing={{ xs: 2, md: 3 }}
+                columns={{ xs: 4, sm: 8, md: 12 }}
+              >
                 <GradeInput name={course.name} />
               </Grid>
             ))}
