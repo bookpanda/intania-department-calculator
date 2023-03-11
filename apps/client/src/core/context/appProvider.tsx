@@ -39,19 +39,35 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
           (c) => c.name === course.name
         )[0];
         if (overwriteCourse) {
-          return { ...overwriteCourse, semester: course.semester };
+          return {
+            ...overwriteCourse,
+            semester: course.semester,
+            key: course.key,
+          };
         }
         return course;
       });
     });
   }, [department]);
 
-  // useEffect(() => {
-  //   let sum = 0;
-  //   for (const [key, value] of Object.entries(courses)) {
-  //     sum += value * mul[key as string];
-  //   }
-  // }, [courses]);
+  useEffect(() => {
+    let sumsem1 = 0,
+      sumsem2 = 0;
+    for (const [key, value] of Object.entries(courses)) {
+      const c = coursesList.filter((c) => c.key === key)[0];
+      if (c.semester === 1) {
+        sumsem1 += value * c.credits;
+      } else if (c.semester === 2) {
+        sumsem2 += value * c.credits;
+      }
+    }
+    setGpa((gpa) => {
+      return {
+        sem1: { earnedCredits: sumsem1, totalCredits: gpa.sem1.totalCredits },
+        sem2: { earnedCredits: sumsem2, totalCredits: gpa.sem2.totalCredits },
+      };
+    });
+  }, [courses]);
 
   return (
     <AppContext.Provider
