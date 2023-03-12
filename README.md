@@ -1,3 +1,3 @@
-# Turborepo starter
+# Intania Department Calculator
 
-This is my starter turborepo template.
+Calculates your likelihood of getting into your desired engineering departments in Chulalongkorn University.
