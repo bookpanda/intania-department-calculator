@@ -10,8 +10,7 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 
 export const Result: FC = () => {
-  const { department, gpa, score } = useAppContext();
-  const percentage = 80;
+  const { department, gpa, score, text } = useAppContext();
   return (
     <Paper elevation={3} sx={{ marginTop: 4 }}>
       <div className="w-full p-8">
@@ -20,10 +19,13 @@ export const Result: FC = () => {
           Engineering
         </Typography>
         <Divider variant="fullWidth" sx={{ marginBottom: 4 }} />
-        <div className="flex w-full flex-col items-center bg-blue-100">
+        <div className="flex w-full flex-col items-center">
+          <Typography variant="h5" marginBottom={2}>
+            % of lowest entry score
+          </Typography>
           <div className="mb-6 w-3/5">
             <CircularProgressbarWithChildren
-              value={percentage}
+              value={Math.min(100, score.percentage)}
               styles={buildStyles({
                 rotation: 0,
                 strokeLinecap: "round",
@@ -34,9 +36,19 @@ export const Result: FC = () => {
                 backgroundColor: colorPalette.red,
               })}
             >
-              <Typography variant="h4">{percentage} %</Typography>
+              <Typography variant="h4">
+                {score.percentage.toFixed(2)} %
+              </Typography>
             </CircularProgressbarWithChildren>
           </div>
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            marginBottom={2}
+            color={text.color}
+          >
+            {text.text}
+          </Typography>
           <Typography variant="h5" fontWeight="600">
             GPAX: {(gpa.both.earnedCredits / gpa.both.totalCredits).toFixed(2)}
             <br />

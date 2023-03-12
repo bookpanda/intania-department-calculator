@@ -154,8 +154,8 @@ export const departments = [
     weights: [],
     record: [
       { year: 2561, accept: 5, gpax: 1.97, score: 71.0 },
-      { year: 2562, accept: 0, gpax: 0, score: 0 },
-      { year: 2563, accept: 0, gpax: 0, score: 0 },
+      { year: 2562, accept: 0, gpax: 0, score: 65 },
+      { year: 2563, accept: 0, gpax: 0, score: 65 },
       { year: 2564, accept: 3, gpax: 1.79, score: 64.5 },
     ],
   },

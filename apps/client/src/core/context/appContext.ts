@@ -27,7 +27,8 @@ export interface IAppContext {
     sem2: { earnedCredits: number; totalCredits: number };
     both: { earnedCredits: number; totalCredits: number };
   };
-  score: { earnedScore: number; totalScore: number };
+  score: { earnedScore: number; totalScore: number; percentage: number };
+  text: { text: string; color: string };
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -40,7 +41,8 @@ export const AppContext = createContext<IAppContext>({
     sem2: { earnedCredits: 0, totalCredits: 0 },
     both: { earnedCredits: 0, totalCredits: 0 },
   },
-  score: { earnedScore: 0, totalScore: 0 },
+  score: { earnedScore: 0, totalScore: 0, percentage: 0 },
+  text: { text: "", color: "" },
 });
 
 export function useAppContext() {
