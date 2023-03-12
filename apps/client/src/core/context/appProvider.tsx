@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useEffect, useState } from "react";
+import { FC, PropsWithChildren, useCallback, useEffect, useState } from "react";
 
 import { coursesList, departments } from "..";
 import { AppContext, IAppContext, baseCourses } from "./appContext";
@@ -8,6 +8,7 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
     useState<IAppContext["department"]>("civil");
   const [courses, setCourses] = useState<IAppContext["courses"]>(baseCourses);
   const [mul, setMul] = useState(coursesList);
+  const [score, setScore] = useState({ earnedScore: 0, totalScore: 0 });
   const [gpa, setGpa] = useState<IAppContext["gpa"]>({
     sem1: {
       earnedCredits: 0,
@@ -27,7 +28,32 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
           return total + curr;
         }),
     },
+    both: {
+      earnedCredits: 0,
+      totalCredits: coursesList
+        .map((course) => course.credits)
+        .reduce((total, curr) => {
+          return total + curr;
+        }),
+    },
   });
+
+  const calculateScore = useCallback(() => {
+    let earnedScore = 0,
+      totalScore = 0;
+    for (const [key, value] of Object.entries(courses)) {
+      earnedScore += value * mul.filter((m) => m.key === key)[0].credits;
+      totalScore += 4 * mul.filter((m) => m.key === key)[0].credits;
+    }
+    setScore({
+      earnedScore,
+      totalScore,
+    });
+  }, [courses, mul]);
+
+  useEffect(() => {
+    calculateScore();
+  }, [courses, mul, calculateScore]);
 
   useEffect(() => {
     const selectedDepartment = departments.filter(
@@ -45,7 +71,7 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
             key: course.key,
           };
         }
-        return course;
+        return coursesList.filter((c) => c.name === course.name)[0];
       });
     });
   }, [department]);
@@ -65,13 +91,17 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
       return {
         sem1: { earnedCredits: sumsem1, totalCredits: gpa.sem1.totalCredits },
         sem2: { earnedCredits: sumsem2, totalCredits: gpa.sem2.totalCredits },
+        both: {
+          earnedCredits: sumsem1 + sumsem2,
+          totalCredits: gpa.both.totalCredits,
+        },
       };
     });
   }, [courses]);
 
   return (
     <AppContext.Provider
-      value={{ department, setDepartment, courses, setCourses, gpa }}
+      value={{ department, setDepartment, courses, setCourses, gpa, score }}
     >
       {children}
     </AppContext.Provider>

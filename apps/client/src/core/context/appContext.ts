@@ -1,7 +1,5 @@
 import { createContext, useContext } from "react";
 
-import { coursesList } from "..";
-
 export const baseCourses = {
   engDrawing: 0,
   engMaterials: 0,
@@ -27,7 +25,9 @@ export interface IAppContext {
   gpa: {
     sem1: { earnedCredits: number; totalCredits: number };
     sem2: { earnedCredits: number; totalCredits: number };
+    both: { earnedCredits: number; totalCredits: number };
   };
+  score: { earnedScore: number; totalScore: number };
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -38,7 +38,9 @@ export const AppContext = createContext<IAppContext>({
   gpa: {
     sem1: { earnedCredits: 0, totalCredits: 0 },
     sem2: { earnedCredits: 0, totalCredits: 0 },
+    both: { earnedCredits: 0, totalCredits: 0 },
   },
+  score: { earnedScore: 0, totalScore: 0 },
 });
 
 export function useAppContext() {

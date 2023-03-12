@@ -10,7 +10,7 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 
 export const Result: FC = () => {
-  const { department } = useAppContext();
+  const { department, gpa, score } = useAppContext();
   const percentage = 80;
   return (
     <Paper elevation={3} sx={{ marginTop: 4 }}>
@@ -20,8 +20,8 @@ export const Result: FC = () => {
           Engineering
         </Typography>
         <Divider variant="fullWidth" sx={{ marginBottom: 4 }} />
-        <div className="flex w-full justify-center">
-          <div className="w-3/5">
+        <div className="flex w-full flex-col items-center bg-blue-100">
+          <div className="mb-6 w-3/5">
             <CircularProgressbarWithChildren
               value={percentage}
               styles={buildStyles({
@@ -37,6 +37,12 @@ export const Result: FC = () => {
               <Typography variant="h4">{percentage} %</Typography>
             </CircularProgressbarWithChildren>
           </div>
+          <Typography variant="h5" fontWeight="600">
+            GPAX: {(gpa.both.earnedCredits / gpa.both.totalCredits).toFixed(2)}
+            <br />
+            Score: {score.earnedScore.toFixed(1)} /{" "}
+            {score.totalScore.toFixed(1)}
+          </Typography>
         </div>
       </div>
     </Paper>

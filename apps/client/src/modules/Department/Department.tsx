@@ -4,7 +4,7 @@ import { Chip, Divider, Grid, Paper, Typography } from "@mui/material";
 import { FC } from "react";
 
 export const Department: FC = () => {
-  const { setDepartment, department } = useAppContext();
+  const { department, setDepartment } = useAppContext();
 
   return (
     <>
