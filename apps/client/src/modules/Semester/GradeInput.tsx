@@ -44,7 +44,6 @@ export const GradeInput: FC<gradeInputType> = ({ name }) => {
           <MenuItem value={2}>C</MenuItem>
           <MenuItem value={1.5}>D+</MenuItem>
           <MenuItem value={1}>D</MenuItem>
-          <MenuItem value={1}>D</MenuItem>
           <MenuItem value={0}>F/W</MenuItem>
         </Select>
       </FormControl>
